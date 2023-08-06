@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>POP CATS!</title>
+
+</head>
+
+<body>
+    <article>
+        <div class="centered-container">
+            <h1> POPCATS</h1>
+            <h2 id="h"> 0 </h1>
+                <!-- IMAGE TAG -->
+                <img id="i" width="400" height="400" />
+
+                <button id="b" onclick="popclick()"> Pop! </button>
+        </div>
+    </article>
+
+    <script>
+
+        const OPEN_IMAGE_URL = "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fphotos%2Fimages%2Fnewsfeed%2F001%2F931%2F957%2Fb02.jpg";
+        const CLOSE_IMAGE_URL = "https://popcat.click/twitter-card.jpg"
+
+
+        const h = document.getElementById("h");
+        const b = document.getElementById("b");
+        const i = document.getElementById("i");
+
+        let 현재모드 = "closed"; // "open"
+        let point = 0;
+
+        i.src = CLOSE_IMAGE_URL;
+
+        function popclick() {
+            if (현재모드 === "open") {
+                i.src = CLOSE_IMAGE_URL;
+                현재모드 = "closed"
+
+                // 포인트 증가
+                point = point + 1
+                h.innerText = point;
+            } else {
+                i.src = OPEN_IMAGE_URL
+                현재모드 = "open"
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
